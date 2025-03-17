@@ -9,6 +9,27 @@
     <title>Tyler Hairston's Portfolio</title>
     <link href="styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        .nav-link {
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .about-me-header {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .work-photo {
+            display: block;
+            margin: 20px auto;
+        }
+        .hidden-section {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header class="bg-danger text-white text-center p-3">
@@ -34,7 +55,7 @@
             <header class="about-me-header">
                 <h2>Welcome to My Portfolio</h2>
             </header>
-            <img src="https://media.licdn.com/dms/image/v2/D4E03AQFJGWy-B5M-zQ/profile-displayphoto-shrink_200_200/B4EZUUCXVxHMAY-/0/1739797920138?e=1747872000&v=beta&t=vDGPeHRGMiFkT6SlwoBI4oVuyUhJY2Nl2AKQvWmXc0" alt="Profile Picture" loading="lazy">
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQFJGWy-B5M-zQ/profile-displayphoto-shrink_200_200/B4EZUUCXVxHMAY-/0/1739797920138?e=1747872000&v=beta&t=vDGPeHRGMiFkT6SlwoBI4oVuyUhJY2Nl2AKQvWmXc0" alt="Profile Picture" loading="lazy" class="work-photo">
             <p>Hi, and thank you for visiting! I'm <strong>Tyler Hairston</strong>, a dedicated professional who loves learning and continuously growing both personally and professionally. My passions include...</p>
             <p>Let’s connect and learn from each other while creating innovative solutions!</p>
         </section>
@@ -47,8 +68,8 @@
                 </div>
             </div>
         </section>
-        <section id="projects-section" class="hidden-section">
-            <div class="row">
+        <div id="projects-section" class="hidden-section">
+            <section class="row">
                 <div class="col-12">
                     <h2>Projects</h2>
                     <ul>
@@ -66,8 +87,8 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
         <section id="contact-section" class="hidden-section">
             <div class="row">
                 <div class="col-12">
@@ -99,6 +120,14 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts.js"></script>
+    <script>
+        function showSection(sectionId) {
+            const sections = ['home-section', 'about-section', 'projects-section', 'contact-section'];
+            sections.forEach(id => {
+                document.getElementById(id).classList.add('hidden-section');
+            });
+            document.getElementById(sectionId).classList.remove('hidden-section');
+        }
+    </script>
 </body>
 </html>
